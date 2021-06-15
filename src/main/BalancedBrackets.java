@@ -1,6 +1,8 @@
 package main;
 
 
+import static java.util.Objects.isNull;
+
 public class BalancedBrackets {
     /**
      * The function BalancedBrackets should return true if and only if
@@ -30,6 +32,15 @@ public class BalancedBrackets {
                 brackets--;
             }
         }
+        if (str.indexOf("]") < str.indexOf("[") || str.lastIndexOf("]") < str.lastIndexOf("[")) {
+            return false;
+        }
+
+        if (str.indexOf("]", str.indexOf("]")+1) < str.indexOf("[", str.indexOf("[") + 1) && str.lastIndexOf("]") != str.indexOf("]")) {
+            return false;
+        }
         return brackets == 0;
     }
+
 }
+
